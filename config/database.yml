@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: muscloud_production
-  username: extentation
+  username: floodico
   password: <%= ENV['MUSCLOUD_DATABASE_PASSWORD'] %>
