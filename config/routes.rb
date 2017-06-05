@@ -7,9 +7,9 @@ Rails.application.routes.draw do
 
     get '/sign_up', to: 'users/registrations#new', as: :new_user_registration
     post '/sign_up', to: 'users/registrations#create', as: :user_registration
-    get '/settings/account', to: 'devise/registrations#edit', as: :edit_user_registration
-    put '/sign_up', to: 'devise/registrations#update'
-    delete '/sign_up', to: 'devise/registrations#destroy'
+    get '/settings/account', to: 'users/registrations#edit', as: :edit_user_registration
+    put '/sign_up', to: 'users/registrations#update'
+    delete '/sign_up', to: 'users/registrations#destroy'
   end
 
   resources :profiles, except: :edit
