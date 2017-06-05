@@ -11,6 +11,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_one :profile, dependent: :destroy
+
   private
 
   def self.find_for_database_authentication(warden_conditions)
