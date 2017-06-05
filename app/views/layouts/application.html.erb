@@ -11,8 +11,9 @@
   <body>
     <% if user_signed_in? -%>
       <ul>
-        <li><%= link_to 'Account', edit_user_registration_path %></li>
-        <li><%= link_to 'Profile', edit_profile_path %></li>
+        <li><%= link_to 'My page', current_user %></li>
+        <li><%= link_to 'Edit Account', edit_user_registration_path %></li>
+        <li><%= link_to 'Edit Profile', edit_profile_path %></li>
         <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
       </ul>
     <% else -%>

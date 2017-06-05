@@ -13,6 +13,11 @@ class User < ApplicationRecord
 
   has_one :profile, dependent: :destroy
 
+
+  def to_param
+    username
+  end
+
   private
 
   def self.find_for_database_authentication(warden_conditions)

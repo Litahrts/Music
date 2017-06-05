@@ -5,16 +5,17 @@ Rails.application.routes.draw do
     post '/sign_in', to: 'devise/sessions#create', as: :user_session
     delete '/logout', to: 'devise/sessions#destroy', as: :destroy_user_session
 
-    get '/sign_up', to: 'users/registrations#new', as: :new_user_registration
-    post '/sign_up', to: 'users/registrations#create', as: :user_registration
-    get '/settings/account', to: 'users/registrations#edit', as: :edit_user_registration
-    put '/sign_up', to: 'users/registrations#update'
-    delete '/sign_up', to: 'users/registrations#destroy'
+    get '/sign_up', to: 'registrations#new', as: :new_user_registration
+    post '/sign_up', to: 'registrations#create', as: :user_registration
+    get '/settings/account', to: 'registrations#edit', as: :edit_user_registration
+    put '/sign_up', to: 'registrations#update'
+    delete '/sign_up', to: 'registrations#destroy'
   end
 
-  resources :profiles, except: :edit
+  resources :profiles, only: :update
 
   get '/settings/profile', to: 'profiles#edit', as: :edit_profile
+  get '/:username', to: 'users#show', as: :user
 
   root 'home#index'
 end

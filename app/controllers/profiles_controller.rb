@@ -2,15 +2,13 @@ class ProfilesController < ApplicationController
   before_action :find_profile
   before_action :authenticate_user!
 
-  def show
-  end
-
   def edit
+
   end
 
   def update
     if @profile.update(profile_params)
-      redirect_to @profile
+      redirect_to :back, notice: "Your profile has been updated successfully."
     else
       render 'edit'
     end
