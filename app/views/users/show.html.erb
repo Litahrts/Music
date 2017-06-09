@@ -1,9 +1,13 @@
 <h1>Users#show</h1>
 <p>Find me in app/views/users/show.html.erb</p>
 
-<% if @user == current_user %>
-  <%= link_to 'Edit User', edit_user_registration %>
-<% else %>
+<ul>
+  <li><%= link_to 'followers', get_followers_user_path %></li>
+  <li><%= link_to 'following', get_following_user_path %></li>
+</ul>
+
+
+<% if @user != current_user %>
   <% if current_user.following?(@user) %>
     <%= link_to 'Following', unfollow_user_path, method: :post %>
   <% else %>

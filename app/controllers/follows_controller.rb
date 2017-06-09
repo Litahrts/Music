@@ -12,6 +12,14 @@ class FollowsController < ApplicationController
     redirect_to @user
   end
 
+  def followers
+    @users = @user.followers
+  end
+
+  def following
+    @users = @user.following
+  end
+
   private
 
   def find_user
