@@ -18,13 +18,15 @@
       </ul>
     <% else -%>
       <ul>
-        <li><%= link_to 'Sign up', new_user_registration_path %></li>
-        <li><%= link_to 'Sign in', new_user_session_path %></li>
+        <li class="not-signed-in btn-link-2"><strong><%= link_to 'Sign up', new_user_registration_path %></strong></li>
+        <li class="not-signed-in btn-link-2"><strong><%= link_to 'Sign in', new_user_session_path %></strong></li>
+        <li class="not-signed-in btn-link-2"><strong><%= link_to 'Home', root_path %></strong></li>
       </ul>
     <% end -%>
 
     <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <div class="warning"><span class="alert-danger"><%= alert %></span></div>
+
 
     <%= yield %>
   </body>
