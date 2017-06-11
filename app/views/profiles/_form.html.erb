@@ -1,4 +1,15 @@
 <%= simple_form_for(@profile) do |f| %>
+    <% if @profile.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+          <ul>
+            <% @profile.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
   <%= f.error_notification %>
   <%= image_tag @profile.avatar.url(:medium) %>
 
