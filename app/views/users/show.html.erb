@@ -4,15 +4,23 @@
 
 <p>
   <strong>Name:</strong>
-  <%= @profile.name %>
+  <%= @profile.name unless @profile.name.blank? %>
 </p>
 
 <p>
   <strong>Location:</strong>
-  <%= @profile.location %>
+  <%= @profile.location unless @profile.location.blank? %>
 </p>
 
 <p>
   <strong>Bio:</strong>
-  <%= @profile.bio %>
+  <%= @profile.bio unless @profile.bio.blank?  %>
 </p>
+
+<ul>
+<% @user.songs.each do |song| %>
+  <%= image_tag song.picture %>
+  <li><%= song.name %></li>
+  <li><%= audio_tag song.audio, controls: true, autoplay: false %></li>
+<% end %>
+</ul>

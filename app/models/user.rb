@@ -13,6 +13,7 @@ class User < ApplicationRecord
          :confirmable
 
   has_one :profile, dependent: :destroy
+  has_many :songs, dependent: :destroy
 
   def to_param
     username

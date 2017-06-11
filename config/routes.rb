@@ -17,5 +17,7 @@ Rails.application.routes.draw do
   get '/settings/profile', to: 'profiles#edit', as: :edit_profile
   get '/:username', to: 'users#show', as: :user
 
+  resources :songs
+  
   root 'home#index'
 end
