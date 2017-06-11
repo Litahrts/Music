@@ -35,6 +35,7 @@ $font_1: sans-serif;
 $url_0: url(login_bg_1.jpg);
 $url_1: url(reg_bg_1.jpg);
 $url_2: url(home_bg_1.jpg);
+$url_3: url(home_bg_2.jpg);
 
 //@extend-elements
 //original selectors
@@ -226,7 +227,7 @@ body {
   }
 }
 
-.login-page, .signup-page, .main-header {
+.login-page, .signup-page, .main-header, .middle-section {
   font-family: $font_0, $font_1;
   font-size: 16px;
   font-weight: 300;
@@ -403,6 +404,38 @@ footer {
 
 .main-header {
   background-image: $url_2;
+}
+
+.middle-section {
+  background-image: $url_3;
+}
+
+.col-sm-4 {
+  border-right: 1px solid $color_picton_blue_approx;
+  &:last-child {
+    border: none;
+  }
+}
+
+.description-middle {
+  margin-top: 100px;
+  h1 {
+    color: $white;
+  }
+  p {
+    width: 600px;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 24%;
+    font-size: 23px;
+    color: $white;
+  }
+  button {
+    margin-top: 70px;
+    font-size: 24px;
+    padding: 15px 15px 30px 18px;
+  }
 }
 
 @media(min-width: 992px) and(max-width: 1199px) {
