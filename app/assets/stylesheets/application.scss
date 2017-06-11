@@ -154,15 +154,6 @@ body {
   &:active {
     @extend %extend_3;
   }
-  &.btn-link-1-facebook {
-    background: $color_san_marino_approx;
-  }
-  &.btn-link-1-twitter {
-    background: $color_picton_blue_approx;
-  }
-  &.btn-link-1-google-plus {
-    background: $color_valencia_approx;
-  }
   i {
     padding-right: 5px;
     vertical-align: middle;
@@ -184,6 +175,9 @@ body {
   color: $white;
   //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
   border-radius: 4px;
+  a {
+    color: #fff;
+  }
   &:hover {
     @extend %extend_4;
   }
@@ -232,7 +226,7 @@ body {
   }
 }
 
-.login-page, .signup-page, .home-page {
+.login-page, .signup-page, .main-header {
   font-family: $font_0, $font_1;
   font-size: 16px;
   font-weight: 300;
@@ -405,6 +399,10 @@ footer {
 .navigation {
   position: absolute;
   top: 0;
+}
+
+.main-header {
+  background-image: $url_2;
 }
 
 @media(min-width: 992px) and(max-width: 1199px) {
