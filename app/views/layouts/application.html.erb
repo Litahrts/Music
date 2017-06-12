@@ -14,7 +14,7 @@
         <li class="not-signed-in btn-link-2"><strong><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></strong></li>
         <li class="not-signed-in btn-link-2"><strong><%= link_to 'Edit Account', edit_user_registration_path %></strong></li>
         <li class="not-signed-in btn-link-2"><strong><%= link_to 'Edit Profile', edit_profile_path %></strong></li>
-        <li class="not-signed-in btn-link-2"><strong><%= link_to 'My page', current_user %></strong></li>
+        <li class="not-signed-in btn-link-2"><strong><%= link_to 'Upload', new_song_path %></strong></li>
         <li class="not-signed-in btn-link-2"><strong><%= link_to 'Home', root_path %></strong></li>
       </ul>
     <% else -%>

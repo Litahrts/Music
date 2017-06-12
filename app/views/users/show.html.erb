@@ -1,22 +1,16 @@
-<<<<<<< HEAD
-<p id="notice"><%= notice %></p>
-
-<%= image_tag @profile.avatar.url(:medium) %>
-
-<p>
-  <strong>Name:</strong>
-  <%= @profile.name unless @profile.name.blank? %>
-</p>
-
-<p>
-  <strong>Location:</strong>
-  <%= @profile.location unless @profile.location.blank? %>
-</p>
-
-<p>
-  <strong>Bio:</strong>
-  <%= @profile.bio unless @profile.bio.blank?  %>
-</p>
+<div class="my-page col-sm-12">
+  <div class="cover">
+    <%= image_tag @profile.cover, :class => 'image-cover' %>
+    <div class="profile-avatar">
+      <%= image_tag @profile.avatar.url(:medium), :class => '' %>
+    </div>
+    <div class="user-info">
+      <h3 class="user-name">MYTESTNAME HERE<%= @profile.name %></h3>
+      <h6 class="user-location">Uzhhorod<%= @profile.location %></h6>
+      <h6 class="user-bio">I love muscloud<%= @profile.bio %></h6>
+    </div>
+  </div>
+</div>
 
 <ul>
 <% @user.songs.each do |song| %>
@@ -46,19 +40,3 @@
 
 <% end %>
 </ul>
-=======
-<div class="my-page col-sm-12">
-  <div class="cover">
-    <%= image_tag @profile.cover, :class => 'image-cover' %>
-    <div class="profile-avatar">
-      <%= image_tag @profile.avatar.url(:medium), :class => '' %>
-    </div>
-    <div class="user-info">
-      <h3 class="user-name">MYTESTNAME HERE<%= @profile.name %></h3>
-      <h6 class="user-location">Uzhhorod<%= @profile.location %></h6>
-      <h6 class="user-bio">I love muscloud<%= @profile.bio %></h6>
-    </div>
-  </div>
-</div>
-<p id="notice"><%= notice %></p>
->>>>>>> authorization
