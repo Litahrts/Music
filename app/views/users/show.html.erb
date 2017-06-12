@@ -1,0 +1,42 @@
+<div class="my-page col-sm-12">
+  <div class="cover">
+    <%= image_tag @profile.cover, :class => 'image-cover' %>
+    <div class="profile-avatar">
+      <%= image_tag @profile.avatar.url(:medium), :class => '' %>
+    </div>
+    <div class="user-info">
+      <h3 class="user-name">MYTESTNAME HERE<%= @profile.name %></h3>
+      <h6 class="user-location">Uzhhorod<%= @profile.location %></h6>
+      <h6 class="user-bio">I love muscloud<%= @profile.bio %></h6>
+    </div>
+  </div>
+</div>
+
+<ul>
+<% @user.songs.each do |song| %>
+  <%= image_tag song.picture %>
+  <li><%= song.user.username %></li>
+  <li><%= song.name %></li>
+  <li><%= audio_tag song.audio, controls: true, autoplay: false %></li>
+
+  <% if user_signed_in? %>
+    <% if song.liked_by? current_user %>
+      <%= link_to unlike_song_path(song), method: :put, class: "btn btn-default" do %>
+        <span>Likes: </span>
+        <%= song.liking_users.size %>
+      <% end %>
+    <% else %>
+      <%= link_to like_song_path(song), method: :put, class: "btn btn-default" do %>
+        <span>Likes: </span>
+        <%= song.liking_users.size %>
+      <% end %>
+    <% end %>
+  <% else %>
+    <%= link_to new_user_session_path, class: "btn btn-default" do %>
+      <span>Likes: </span>
+        <%= song.liking_users.size %>
+    <% end %>
+  <% end %>
+
+<% end %>
+</ul>

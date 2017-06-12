@@ -1,0 +1,66 @@
+<div class="top-content signup-page">
+  <div class="inner-bg">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 text">
+          <h1><strong><a href="/">Muscloud</a></strong> Sign up</h1>
+          <div class="description">
+            <p>
+              Registration page
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+          <div class="form-box">
+            <div class="form-top">
+              <div class="form-top-left">
+                <h3>Sign up to <strong><a href="/">Muscloud</a></strong></h3>
+                <p>All fields are required:</p>
+              </div>
+              <div class="form-top-right">
+                <i class="fa fa-lock"></i>
+              </div>
+            </div>
+            <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                <!-- <%= f.error_notification %> -->
+                <% if resource.errors.any? %>
+                    <div class="alert-danger reg-danger">
+                      <ul>
+                        <% resource.errors.full_messages.each do |msg| %>
+                            <li><%= msg %></li>
+                        <% end %>
+                      </ul>
+                    </div>
+                <% end %>
+                <div class="form-bottom">
+                  <form role="form" class="login-form">
+                    <div class="form-group">
+                      <%= f.input :username, required: false, autofocus: true, :class => "form-email form-control", :id => "form-email" %>
+                    </div>
+                    <div class="form-group">
+                      <%= f.input :email, required: true, autofocus: true, :class => "form-email form-control", :id => "form-email" %>
+                    </div>
+                    <div class="form-group">
+                      <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), :class => "form-password form-control", :id => "form-password" %>
+                    </div>
+                    <div class="form-group">
+                      <%= f.input :password_confirmation, required: true, :class => "form-password form-control", :id => "form-password" %>
+                    </div>
+                    <%= f.button :submit, "Sing up", :class => "btn btn-block btn-login btn-link-2" %>
+                  </form>
+                  <div class="row">
+                    <div class="col-sm-8 col-sm-offset-3 text">
+                      <div class="description">
+                        <p>Already have an account?<strong> <a href="/sign_in"><span class="signin">Try to sign in</span></a></strong></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>

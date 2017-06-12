@@ -1,0 +1,47 @@
+<%= simple_form_for(@profile) do |f| %>
+    <% if @profile.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+          <ul>
+            <% @profile.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+    <%= f.error_notification %>
+    <div class="my-page col-sm-12">
+      <div class="cover">
+        <%= image_tag @profile.cover, :class => 'image-cover' %>
+        <div class="profile-avatar">
+          <%= image_tag @profile.avatar.url(:medium), :class => '' %>
+        </div>
+        <div class="user-info">
+          <h3 class="user-name">EDIT YOUR MUSCLOUD PROFILE</h3>
+        </div>
+      </div>
+    </div>
+    <%= f.input :avatar, as: :file %>
+    <%= f.input :cover, as: :file %>
+    <div class="row">
+      <div class="col-sm-3"></div>
+      <div class="col-sm-6">
+        <div class="form-bottom">
+          <form role="form" class="login-form">
+            <div class="form-group">
+              <%= f.input :name, :class => "form-email form-control", :id => "form-email" %>
+            </div>
+            <div class="form-group">
+              <%= f.input :location, :class => "form-password form-control", :id => "form-password" %>
+            </div>
+            <div class="form-group">
+              <%= f.input :bio, :class => "form-password form-control", :id => "form-password" %>
+            </div>
+            <%= f.button :submit, "Update profile", :class => "btn btn-block btn-login btn-link-1" %>
+          </form>
+        </div>
+      </div>
+    </div>
+    </div>
+<% end %>

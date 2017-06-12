@@ -3,7 +3,7 @@
   <head>
     <title>Muscloud</title>
     <%= csrf_meta_tags %>
-
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -11,18 +11,23 @@
   <body>
     <% if user_signed_in? -%>
       <ul>
-        <li><%= link_to 'Account', edit_user_registration_path %></li>
-        <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
+        <li class="not-signed-in btn-link-2"><strong><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></strong></li>
+        <li class="not-signed-in btn-link-2"><strong><%= link_to 'Edit Account', edit_user_registration_path %></strong></li>
+        <li class="not-signed-in btn-link-2"><strong><%= link_to 'Edit Profile', edit_profile_path %></strong></li>
+        <li class="not-signed-in btn-link-2"><strong><%= link_to 'Upload', new_song_path %></strong></li>
+        <li class="not-signed-in btn-link-2"><strong><%= link_to 'Home', root_path %></strong></li>
       </ul>
     <% else -%>
       <ul>
-        <li><%= link_to 'Sign up', new_user_registration_path %></li>
-        <li><%= link_to 'Sign in', new_user_session_path %></li>
+        <li class="not-signed-in btn-link-2"><strong><%= link_to 'Sign up', new_user_registration_path %></strong></li>
+        <li class="not-signed-in btn-link-2"><strong><%= link_to 'Sign in', new_user_session_path %></strong></li>
+        <li class="not-signed-in btn-link-2"><strong><%= link_to 'Home', root_path %></strong></li>
       </ul>
     <% end -%>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <!-- <p class="notice"><%= notice %></p> -->
+    <div class="warning"><span class="alert-danger"><%= alert %></span></div>
+
 
     <%= yield %>
   </body>
