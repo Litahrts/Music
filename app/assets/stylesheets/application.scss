@@ -440,48 +440,6 @@ footer {
   }
 }
 
-.user-profile {
-  position: relative;
-  z-index: -1;
-}
-
-.avatar {
-  margin-left: 90px;
-  width: 200px;
-  padding-top: 60px;
-  .user-avatar {
-    border-radius: 50%;
-  }
-}
-
-.user-cover {
-  overflow: hidden;
-  height: 300px;
-  position: absolute;
-  top: 0;
-  z-index: -1;
-}
-
-.user-info {
-  position: absolute;
-  top: 30%;
-  left: 27%;
-
-  .user-name {
-    padding: 10px;
-    background-color: #888888;
-    color: $white;
-    font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;;
-    font-size: 20px;
-  }
-
-  h6 {
-    color: $white;
-    padding: 4px;
-    font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;;
-  }
-}
-
 footer {
   margin-top: 100px;
   width: 100%;
@@ -510,23 +468,39 @@ footer {
   }
 }
 
-.editing-profile {
-  position: absolute;
-  top: 35%;
-  right: 30%;
-  color: #435252;
-  font-size: 50px;
-}
+.my-page {
+  height: 270px;
+  background-color: aqua;
+  z-index: -1;
+  position: relative;
+  .cover {
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    background-color: yellow;
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: -webkit-center;
+    overflow: hidden;
+    .image-cover {
+      z-index: -1;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+    .profile-avatar {
+      position: absolute;
+      top: 60px;
+      left: 150px;
 
-.avatar-cover {
-  margin-top: 10px;
-  margin-left: 60px;
-  width: 40%;
-}
-
-.cover-avatar {
-  margin-left: 70%;
-  margin-top: -50px;
+      & > img {
+        height: 200px;
+        width: 200px;
+        border-radius: 50%;
+      }
+    }
+  }
 }
 
 @media(min-width: 992px) and(max-width: 1199px) {
