@@ -477,7 +477,6 @@ footer {
     z-index: -1;
     height: 100%;
     width: 100%;
-    background-color: yellow;
     position: absolute;
     top: 0;
     left: 0;
@@ -500,6 +499,23 @@ footer {
         border-radius: 50%;
       }
     }
+    .user-info {
+      position: absolute;
+      top: 80px;
+      left: 410px;
+      text-align: left;
+      .user-name {
+        padding: 5px 3px 5px 3px;
+        background-color: #444444;
+        color: $white;
+      }
+      .user-bio, .user-location {
+        padding: 5px 3px 5px 3px;
+        background-color: #444444;
+        color: $white;
+      }
+    }
+
   }
 }
 
