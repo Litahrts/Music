@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170611152102) do
+ActiveRecord::Schema.define(version: 20170612093348) do
+
+  create_table "likes", force: :cascade do |t|
+    t.integer  "song_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["song_id"], name: "index_likes_on_song_id"
+    t.index ["user_id", "song_id"], name: "index_likes_on_user_id_and_song_id", unique: true
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
 
   create_table "profiles", force: :cascade do |t|
     t.string   "name"

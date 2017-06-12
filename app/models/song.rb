@@ -7,4 +7,12 @@ class Song < ApplicationRecord
   validates_attachment_size :audio, :less_than => 10.megabytes
 
   belongs_to :user
+  has_many :likes
+  has_many :liking_users, :through => :likes, :source => :user
+
+  # Returns true if the current user is liking a song.
+  def liked_by?(user)
+    liking_users.include?(user)
+  end
+
 end

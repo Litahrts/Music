@@ -22,5 +22,25 @@
   <%= image_tag song.picture %>
   <li><%= song.name %></li>
   <li><%= audio_tag song.audio, controls: true, autoplay: false %></li>
+
+  <% if user_signed_in? %>
+    <% if song.liked_by? current_user %>
+      <%= link_to unlike_song_path(song), method: :put, class: "btn btn-default" do %>
+        <span>Likes: </span>
+        <%= song.liking_users.size %>
+      <% end %>
+    <% else %>
+      <%= link_to like_song_path(song), method: :put, class: "btn btn-default" do %>
+        <span>Likes: </span>
+        <%= song.liking_users.size %>
+      <% end %>
+    <% end %>
+  <% else %>
+    <%= link_to new_user_session_path, class: "btn btn-default" do %>
+      <span>Likes: </span>
+        <%= song.liking_users.size %>
+    <% end %>
+  <% end %>
+
 <% end %>
 </ul>

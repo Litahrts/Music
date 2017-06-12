@@ -14,9 +14,26 @@ class User < ApplicationRecord
 
   has_one :profile, dependent: :destroy
   has_many :songs, dependent: :destroy
+  has_many :likes
+  has_many :liked_songs, :through => :likes, :source => :song
 
   def to_param
     username
+  end
+
+  # Likes a song.
+  def like(song)
+    likes.create(song_id: song.id)
+  end
+
+  # Unlikes a song.
+  def unlike(song)
+    likes.find_by(song_id: song.id).destroy
+  end
+
+  # Returns true if the current user is liking a song.
+  def liking?(song)
+    likes.include?(song)
   end
 
   private

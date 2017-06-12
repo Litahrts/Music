@@ -1,3 +1,4 @@
+
 Rails.application.routes.draw do
   devise_for :users, skip: [:sessions, :registrations], controllers: { confirmations: 'confirmations' }
   devise_scope :user do
@@ -13,11 +14,16 @@ Rails.application.routes.draw do
   end
 
   resources :profiles, only: :update
+  resources :songs do
+    member do
+      put 'like_song', to: 'likes#create', as: :like
+      put 'unlike_song', to: 'likes#destroy', as: :unlike
+    end
+  end
 
   get '/settings/profile', to: 'profiles#edit', as: :edit_profile
   get '/:username', to: 'users#show', as: :user
 
-  resources :songs
-  
+
   root 'home#index'
 end
