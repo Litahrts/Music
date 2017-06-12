@@ -523,6 +523,64 @@ footer {
 
   }
 }
+/******************** PLAY LIST ********************/
+.play-list {
+  list-style: none;
+  margin: 0;
+}
+
+.song-body {
+  position: relative;
+  height: 150px;
+  width: 70%;
+  margin: 0 auto;
+  margin-bottom: 20px;
+
+  .song-pic {
+    display: inline-block;
+    position: relative;
+    margin-right: 15px;
+    width: 150px;
+    height: 150px;
+  }
+
+  .song-content {
+    display: inline-block;
+    position: absolute;
+    margin-left: 20px;
+    .song-credits {
+      color: #333;
+      font-size: 14px;
+    }
+    h3 {
+      margin-top: 10px;
+      font-size: 24px;
+      line-height: 1.2;
+      color: #333;
+    }
+    .audio-player {
+      display: inline-block;
+      margin-top: 25px;
+    }
+    .btn-like {
+      position: relative;
+      display: inline-block;
+      height: 32px;
+      width: 32px;
+      border-radius: 50%;
+      margin-bottom: 25px;
+      margin-left: 20px;
+      span {
+        position: absolute;
+        top: 22%;
+        left: 25%;
+      }
+      h6 {
+        margin-left: 20px;
+      }
+    }
+  }
+}
 
 @media(min-width: 992px) and(max-width: 1199px) {
 }
