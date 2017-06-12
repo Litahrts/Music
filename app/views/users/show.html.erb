@@ -11,7 +11,42 @@
     </div>
   </div>
 </div>
-
+<div class="container con-play">
+  <ul class="play-list">
+    <% @user.songs.each do |song| %>
+        <li class="song-body">
+          <div class="song-pic">
+            <%= image_tag song.picture %>
+          </div>
+          <div class="song-content">
+            <span class="song-credits">Song "<%= song.name %>" posted by "<%= song.user.username %>"</span>
+            <h3>Song name: <%= song.name %></h3>
+            <div class="audio-player">
+              <%= audio_tag song.audio, controls: true, autoplay: false %>
+            </div>
+            <% if user_signed_in? %>
+                <% if song.liked_by? current_user %>
+                    <%= link_to unlike_song_path(song), method: :put, class: "btn btn-like" do %>
+                        <span><i class="fa fa-heart" aria-hidden="true" style="color: red"></i></span>
+                        <h6><%= song.liking_users.size %></h6>
+                    <% end %>
+                <% else %>
+                    <%= link_to like_song_path(song), method: :put, class: "btn btn-like" do %>
+                        <span><i class="fa fa-heart" aria-hidden="true" style="color: red"></i></span>
+                        <h6><%= song.liking_users.size %></h6>
+                    <% end %>
+                <% end %>
+            <% else %>
+                <%= link_to new_user_session_path, class: "btn btn-default" do %>
+                    <span>Likes: </span>
+                    <%= song.liking_users.size %>
+                <% end %>
+            <% end %>
+          </div>
+        </li>
+    <% end %>
+  </ul>
+</div>
 <ul>
   <p><%= @user.followers.size %></p>
   <li><%= link_to 'followers', get_followers_path %></li>
@@ -21,39 +56,9 @@
 
 
 <% if @user != current_user %>
-  <% if current_user.following?(@user) %>
-    <%= link_to 'Following', unfollow_user_path, method: :post %>
-  <% else %>
-    <%= link_to 'Follow', follow_user_path, method: :post %>
-  <% end %>
-<% end %>
-
-
-<ul>
-<% @user.songs.each do |song| %>
-  <%= image_tag song.picture %>
-  <li><%= song.user.username %></li>
-  <li><%= song.name %></li>
-  <li><%= audio_tag song.audio, controls: true, autoplay: false %></li>
-
-  <% if user_signed_in? %>
-    <% if song.liked_by? current_user %>
-      <%= link_to unlike_song_path(song), method: :put, class: "btn btn-default" do %>
-        <span>Likes: </span>
-        <%= song.liking_users.size %>
-      <% end %>
+    <% if current_user.following?(@user) %>
+        <%= link_to 'Following', unfollow_user_path, method: :post %>
     <% else %>
-      <%= link_to like_song_path(song), method: :put, class: "btn btn-default" do %>
-        <span>Likes: </span>
-        <%= song.liking_users.size %>
-      <% end %>
+        <%= link_to 'Follow', follow_user_path, method: :post %>
     <% end %>
-  <% else %>
-    <%= link_to new_user_session_path, class: "btn btn-default" do %>
-      <span>Likes: </span>
-        <%= song.liking_users.size %>
-    <% end %>
-  <% end %>
-
 <% end %>
-</ul>
