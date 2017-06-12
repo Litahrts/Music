@@ -582,6 +582,22 @@ footer {
   }
 }
 
+.user-follow {
+  position: absolute;
+  top: -55px;
+  left: 310px;
+}
+
+.btn-follow {
+  line-height: 1.8;
+}
+
+.followers, .following {
+  display: inline-block;
+  margin-right: 10px;
+  z-index: 3;
+}
+
 @media(min-width: 992px) and(max-width: 1199px) {
 }
 
