@@ -1,6 +1,4 @@
 class User < ApplicationRecord
-  # Virtual attribute for authenticating by either username or email
-  # This is in addition to a real persisted field like 'username'
   attr_accessor :login
 
   validates :username, :presence => true, :uniqueness => { :case_sensitive => false }
@@ -16,6 +14,25 @@ class User < ApplicationRecord
   has_many :songs, dependent: :destroy
   has_many :likes
   has_many :liked_songs, :through => :likes, :source => :song
+  has_many :active_followings, class_name:  "Follow", foreign_key: "follower_id", dependent:   :destroy
+  has_many :following, through: :active_followings, source: :followed
+  has_many :passive_followings, class_name:  "Follow", foreign_key: "followed_id", dependent:   :destroy
+  has_many :followers, through: :passive_followings, source: :follower
+
+  # Follows a user.
+  def follow(other_user)
+    active_followings.create(followed_id: other_user.id)
+  end
+
+  # Unfollows a user.
+  def unfollow(other_user)
+    active_followings.find_by(followed_id: other_user.id).destroy
+  end
+
+  # Returns true if the current user is following the other user.
+  def following?(other_user)
+    following.include?(other_user)
+  end
 
   def to_param
     username

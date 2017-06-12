@@ -13,6 +13,23 @@
 </div>
 
 <ul>
+  <p><%= @user.followers.size %></p>
+  <li><%= link_to 'followers', get_followers_path %></li>
+  <p><%= @user.following.size %></p>
+  <li><%= link_to 'following', get_following_path %></li>
+</ul>
+
+
+<% if @user != current_user %>
+  <% if current_user.following?(@user) %>
+    <%= link_to 'Following', unfollow_user_path, method: :post %>
+  <% else %>
+    <%= link_to 'Follow', follow_user_path, method: :post %>
+  <% end %>
+<% end %>
+
+
+<ul>
 <% @user.songs.each do |song| %>
   <%= image_tag song.picture %>
   <li><%= song.user.username %></li>
