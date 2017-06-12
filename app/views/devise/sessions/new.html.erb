@@ -1,15 +1,58 @@
-<h2>Log in</h2>
+<div class="top-content login-page">
+  <div class="inner-bg">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 text">
+          <h1><strong><a href="/">Muscloud</a></strong> Sign In</h1>
+          <div class="description">
+            <p>
+              Authorization page
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+          <div class="form-box">
+            <div class="form-top">
+              <div class="form-top-left">
+                <h3>Sign in to <strong><a href="/">Muscloud</a></strong></h3>
+                <p>Enter username and password to log on:</p>
+              </div>
+              <div class="form-top-right">
+                <i class="fa fa-lock"></i>
+              </div>
+            </div>
+            <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                <div class="form-bottom">
+                  <form role="form" class="login-form">
+                    <div class="form-group">
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :login, required: false, autofocus: true %>
-    <%= f.input :password, required: false %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+                      <%= f.input :login, required: false, autofocus: true, :class => "form-email form-control", :id => "form-email" %>
+                    </div>
+                    <div class="form-group">
+
+                      <%= f.input :password, required: false, :class => "form-password form-control", :id => "form-password" %>
+                    </div>
+                    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+
+                    <%= f.button :submit, "Sign in", :class => "btn btn-block btn-login btn-link-2" %>
+                  </form>
+                  <div class="row">
+                    <div class="col-sm-8 col-sm-offset-3 text">
+                      <div class="description">
+                        <p>Dont have an account?<a href="/sign_up"><strong><span class="join">Join now!</span></strong></a></p>
+                        <p><%= link_to "Forgot your password?", new_password_path(resource_name) %></p>
+                        <p><%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

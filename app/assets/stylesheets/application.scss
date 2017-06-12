@@ -11,5 +11,547 @@
  * It is generally better to create a new file per style scope.
  *
  */
+<<<<<<< HEAD
 
+=======
+>>>>>>> authorization
 @import "bootstrap";
+
+//colors
+$white: #fff;
+$white_60: rgba(255, 255, 255, 0.6);
+$color_scooter_approx: #19b9e7;
+$color_fuscous_gray_approx: #555;
+$color_san_marino_approx: #0018ff;
+$color_picton_blue_approx: #55acee;
+$color_valencia_approx: #dd4b39;
+$black_30: rgba(0, 0, 0, 0.3);
+$color_suva_gray_approx: #888;
+$color_purple_heart_approx: #bc91e2;
+$color_tundora_approx: #444;
+$black_35: rgba(0, 0, 0, 0.35);
+
+//fonts
+$font_0: Roboto;
+$font_1: sans-serif;
+
+//urls
+$url_0: url(login_bg_1.jpg);
+$url_1: url(reg_bg_1.jpg);
+$url_2: url(home_bg_1.jpg);
+$url_3: url(home_bg_2.jpg);
+$url_4: url(edit_bg_1.jpg);
+
+//@extend-elements
+//original selectors
+//a, a:hover, a:focus
+%extend_1 {
+  color: $color_scooter_approx;
+  text-decoration: none;
+  //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+  transition: all .3s;
+}
+
+//original selectors
+//h1, h2
+%extend_2 {
+  margin-top: 10px;
+  font-size: 38px;
+  font-weight: 100;
+  color: $color_fuscous_gray_approx;
+  line-height: 50px;
+}
+
+//original selectors
+//.btn-link-1:hover, .btn-link-1:focus, .btn-link-1:active
+%extend_3 {
+  outline: 0;
+  opacity: 0.6;
+  color: $white;
+}
+
+//original selectors
+//.btn-link-2:hover, .btn-link-2:focus, .btn-link-2:active, .btn-link-2:active:focus
+%extend_4 {
+  outline: 0;
+  opacity: 0.6;
+  background: $black_30;
+  color: $white;
+}
+
+strong {
+  font-weight: 700;
+}
+
+a {
+  @extend %extend_1;
+  &:hover {
+    @extend %extend_1;
+  }
+  &:focus {
+    @extend %extend_1;
+  }
+}
+
+h1 {
+  @extend %extend_2;
+}
+
+h2 {
+  @extend %extend_2;
+}
+
+h3 {
+  font-size: 22px;
+  font-weight: 300;
+  color: $color_fuscous_gray_approx;
+  line-height: 30px;
+}
+
+ul, p {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+p {
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+}
+
+body {
+  position: relative;
+}
+
+::-moz-selection {
+  background: $color_scooter_approx;
+  color: $white;
+  //Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+  text-shadow: none;
+}
+
+::selection {
+  background: $color_scooter_approx;
+  color: $white;
+  //Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+  text-shadow: none;
+}
+
+.btn-link-1 {
+  display: inline-block;
+  height: 35px;
+  margin-top: 5px;
+  padding: 0px 20px 0;
+  background: $color_scooter_approx;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 16px;
+  color: $white;
+  //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+  border-radius: 4px;
+  &:hover {
+    @extend %extend_3;
+  }
+  &:focus {
+    @extend %extend_3;
+  }
+  &:active {
+    @extend %extend_3;
+  }
+  i {
+    padding-right: 5px;
+    vertical-align: middle;
+    font-size: 20px;
+    line-height: 20px;
+  }
+}
+
+.btn-link-2 {
+  display: inline-block;
+  height: 35px;
+  margin-top: 5px;
+  padding: 0 20px;
+  background: $black_30;
+  border: 1px solid $white;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 16px;
+  color: $white;
+  //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+  border-radius: 4px;
+  a {
+    color: #fff;
+  }
+  &:hover {
+    @extend %extend_4;
+  }
+  &:focus {
+    @extend %extend_4;
+  }
+  &:active {
+    @extend %extend_4;
+    &:focus {
+      @extend %extend_4;
+    }
+  }
+  i {
+    padding-right: 5px;
+    vertical-align: middle;
+    font-size: 20px;
+    line-height: 20px;
+  }
+}
+
+.inner-bg {
+  padding: 60px 0 80px;
+}
+
+.top-content {
+  .text {
+    color: $white;
+    h1 {
+      color: $white;
+    }
+  }
+  .description {
+    margin: 20px 0 10px;
+    p {
+      opacity: 0.8;
+    }
+    a {
+      color: $white;
+      &:hover {
+        border-bottom: 1px dotted $white;
+      }
+      &:focus {
+        border-bottom: 1px dotted $white;
+      }
+    }
+  }
+}
+
+.login-page, .signup-page, .main-header, .middle-section, .edit-page {
+  font-family: $font_0, $font_1;
+  font-size: 16px;
+  font-weight: 300;
+  color: $color_suva_gray_approx;
+  line-height: 30px;
+  text-align: center;
+  background-image: $url_0;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: 100%;
+}
+.login-page {
+  background-image: $url_0;
+}
+.signup-page {
+  background-image: $url_1;
+}
+
+.home-page {
+  background-image: $url_2;
+}
+
+.edit-page {
+  background-image: $url_4;
+}
+
+.join {
+  color: $color_purple_heart_approx;
+  font-size: 16px;
+}
+
+.signin {
+  color: #ffffff;
+  font-size: 16px;
+}
+
+.reg-danger {
+  text-align: left;
+}
+ 
+.form-box {
+  margin-top: 30px;
+}
+
+.form-top {
+  overflow: hidden;
+  padding: 0 25px 15px;
+  background: $color_tundora_approx;
+  background: $black_35;
+  //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+  border-radius: 4px 4px 0 0;
+  text-align: left;
+}
+
+.warning {
+  position: absolute;
+  top: 37.5%;
+  left: 40%;
+  width: 20%;
+  text-align: center;
+}
+
+.form-top-left {
+  float: left;
+  width: 75%;
+  padding-top: 25px;
+  h3 {
+    margin-top: 0;
+    color: $white;
+  }
+  p {
+    opacity: 0.8;
+    color: $white;
+  }
+}
+
+.form-top-center {
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 0 25px 15px;
+  background: $black_35;
+  //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+  border-radius: 4px 4px 0 0;
+  text-align: left;
+  opacity: 0.8;
+  color: $white;
+}
+
+.form-top-right {
+  float: left;
+  width: 25%;
+  padding-top: 5px;
+  font-size: 66px;
+  color: $white;
+  line-height: 100px;
+  text-align: right;
+  opacity: 0.3;
+}
+
+.form-bottom {
+  padding: 25px 25px 30px 25px;
+  background: $color_tundora_approx;
+  background: $black_30;
+  //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+  border-radius: 0 0 4px 4px;
+  text-align: left;
+  form {
+    textarea {
+      height: 100px;
+    }
+    .input-error {
+      border-color: $color_scooter_approx;
+    }
+    button.btn {
+      width: 100%;
+    }
+  }
+}
+
+.social-login {
+  margin-top: 35px;
+  h3 {
+    color: $white;
+  }
+}
+
+.social-login-buttons {
+  margin-top: 25px;
+}
+
+.middle-border {
+  min-height: 300px;
+  margin-top: 170px;
+  border-right: 1px solid $white;
+  border-right: 1px solid $white_60;
+}
+
+footer {
+  padding-bottom: 70px;
+  color: $white;
+  .footer-border {
+    width: 200px;
+    margin: 0 auto;
+    padding-bottom: 30px;
+    border-top: 1px solid $white;
+    border-top: 1px solid $white_60;
+  }
+  p {
+    opacity: 0.8;
+  }
+  a {
+    color: $white;
+    &:hover {
+      color: $white;
+      border-bottom: 1px dotted $white;
+    }
+    &:focus {
+      color: $white;
+      border-bottom: 1px dotted $white;
+    }
+  }
+}
+
+.not-signed-in {
+  display: inline;
+  float: right;
+  margin-right: 15px;
+  font-size: 18px;
+  padding-top: 8px;
+  color: cyan;
+}
+
+.navigation {
+  position: absolute;
+  top: 0;
+}
+
+.main-header {
+  background-image: $url_2;
+}
+
+.middle-section {
+  background-image: $url_3;
+  height: 500px;
+  margin-top: 50px;
+  margin-bottom: 50px
+}
+
+.col-sm-4 {
+  border-right: 1px solid $color_picton_blue_approx;
+  &:last-child {
+    border: none;
+  }
+}
+
+.description-middle {
+  margin-top: 100px;
+  h1 {
+    color: $white;
+  }
+  p {
+
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 23px;
+    color: $white;
+  }
+  button {
+    margin-top: 50px;
+    font-size: 24px;
+    padding: 15px 15px 30px 18px;
+  }
+}
+
+footer {
+  margin-top: 100px;
+  width: 100%;
+  height: 90px;
+
+  .footer-line {
+    width: 70%;
+    margin: 0 auto;
+    height: 100px;
+    border-top: 1px solid rgba(102, 101, 101, 0.2);
+    text-align: center;
+  }
+  h3 {
+    margin-top: 30px;
+  }
+  h3 > a {
+    color: $color_scooter_approx;
+    text-decoration: none;
+    font-weight: 700;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+  }
+  a:hover{
+    text-decoration: none;
+    color: black;
+  }
+}
+
+.my-page {
+  height: 270px;
+  background-color: aqua;
+  z-index: -1;
+  position: relative;
+  .cover {
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: -webkit-center;
+    overflow: hidden;
+    .image-cover {
+      z-index: -1;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+    .profile-avatar {
+      position: absolute;
+      top: 60px;
+      left: 150px;
+
+      & > img {
+        height: 200px;
+        width: 200px;
+        border-radius: 50%;
+      }
+    }
+    .user-info {
+      position: absolute;
+      top: 80px;
+      left: 410px;
+      text-align: left;
+      .user-name {
+        padding: 5px 3px 5px 3px;
+        background-color: #444444;
+        color: $white;
+      }
+      .user-bio, .user-location {
+        padding: 5px 3px 5px 3px;
+        background-color: #444444;
+        color: $white;
+      }
+    }
+
+  }
+}
+
+@media(min-width: 992px) and(max-width: 1199px) {
+}
+
+@media(min-width: 768px) and(max-width: 991px) {
+}
+
+@media(max-width: 767px) {
+  .middle-border {
+    min-height: auto;
+    margin: 65px 30px 0;
+    border-right: 0;
+    border-top: 1px solid $white;
+    border-top: 1px solid $white_60;
+  }
+}
+
+@media(max-width: 415px) {
+  h1 {
+    font-size: 32px;
+  }
+  h2 {
+    font-size: 32px;
+  }
+}
+
+
+
