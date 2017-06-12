@@ -10,19 +10,41 @@
           </ul>
         </div>
     <% end %>
-  <%= f.error_notification %>
-  <%= image_tag @profile.avatar.url(:medium) %>
-  <%= image_tag @profile.cover %>
-
-  <div class="form-inputs">
-    <%= f.input :avatar, as: :file %>
-    <%= f.input :cover, as: :file %>
-    <%= f.input :name %>
-    <%= f.input :location %>
-    <%= f.input :bio %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+    <%= f.error_notification %>
+    <div class="user-profile">
+      <div class="avatar">
+        <%= image_tag @profile.avatar.url(:medium), :class => "user-avatar" %>
+      </div>
+      <div class="user-cover">
+        <%= image_tag @profile.cover %>
+        <span class="editing-profile">Edit your <a href="#">Muscloud</a> profile</span>
+      </div>
+    </div>
+    <div class="container" style="width: 98%; display: inline-block;">
+      <div class="avatar-cover">
+        <%= f.input :avatar, as: :file %>
+      </div>
+      <div class="cover-avatar">
+        <%= f.input :cover, as: :file %>
+      </div>
+      <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+          <div class="form-bottom">
+            <form role="form" class="login-form">
+              <div class="form-group">
+                <%= f.input :name, :class => "form-email form-control", :id => "form-email" %>
+              </div>
+              <div class="form-group">
+                <%= f.input :location, :class => "form-password form-control", :id => "form-password" %>
+              </div>
+              <div class="form-group">
+                <%= f.input :bio, :class => "form-password form-control", :id => "form-password" %>
+              </div>
+              <%= f.button :submit, "Update profile", :class => "btn btn-block btn-login btn-link-1" %>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
 <% end %>

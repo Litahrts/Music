@@ -136,9 +136,9 @@ body {
 
 .btn-link-1 {
   display: inline-block;
-  height: 50px;
+  height: 35px;
   margin-top: 5px;
-  padding: 16px 20px 0;
+  padding: 0px 20px 0;
   background: $color_scooter_approx;
   font-size: 16px;
   font-weight: 300;
@@ -504,10 +504,29 @@ footer {
     -webkit-transition: all .3s;
     transition: all .3s;
   }
-  a:hover {
+  a:hover{
     text-decoration: none;
     color: black;
   }
+}
+
+.editing-profile {
+  position: absolute;
+  top: 35%;
+  right: 30%;
+  color: #435252;
+  font-size: 50px;
+}
+
+.avatar-cover {
+  margin-top: 10px;
+  margin-left: 60px;
+  width: 40%;
+}
+
+.cover-avatar {
+  margin-left: 70%;
+  margin-top: -50px;
 }
 
 @media(min-width: 992px) and(max-width: 1199px) {
