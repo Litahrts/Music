@@ -440,6 +440,48 @@ footer {
   }
 }
 
+.user-profile {
+  position: relative;
+  z-index: -1;
+}
+
+.avatar {
+  margin-left: 90px;
+  width: 200px;
+  padding-top: 60px;
+  .user-avatar {
+    border-radius: 50%;
+  }
+}
+
+.user-cover {
+  overflow: hidden;
+  height: 300px;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+}
+
+.user-info {
+  position: absolute;
+  top: 30%;
+  left: 27%;
+
+  .user-name {
+    padding: 10px;
+    background-color: #888888;
+    color: $white;
+    font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;;
+    font-size: 20px;
+  }
+
+  h6 {
+    color: $white;
+    padding: 4px;
+    font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;;
+  }
+}
+
 @media(min-width: 992px) and(max-width: 1199px) {
 }
 

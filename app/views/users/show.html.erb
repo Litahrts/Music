@@ -1,19 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<%= image_tag @profile.avatar.url(:medium) %>
-<%= image_tag @profile.cover %>
-
-<p>
-  <strong>Name:</strong>
-  <%= @profile.name %>
-</p>
-
-<p>
-  <strong>Location:</strong>
-  <%= @profile.location %>
-</p>
-
-<p>
-  <strong>Bio:</strong>
-  <%= @profile.bio %>
-</p>
+<div class="user-profile">
+  <div class="avatar">
+    <%= image_tag @profile.avatar.url(:medium), :class => "user-avatar" %>
+  </div>
+  <div class="user-cover">
+    <%= image_tag @profile.cover %>
+  </div>
+  <div class="user-info">
+    <h3 class="user-name">MYTESTNAME HERE<%= @profile.name %></h3>
+    <h6 class="user-location">Uzhhorod<%= @profile.location %></h6>
+    <h6 class="user-bio">I love muscloud<%= @profile.bio %></h6>
+  </div>
+</div>
