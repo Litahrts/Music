@@ -1,24 +1,7 @@
-<p id="notice"><%= notice %></p>
-
-<%= image_tag @profile.avatar.url(:medium) %>
-
-<p>
-  <strong>Name:</strong>
-  <%= @profile.name unless @profile.name.blank? %>
-</p>
-
-<p>
-  <strong>Location:</strong>
-  <%= @profile.location unless @profile.location.blank? %>
-</p>
-
-<p>
-  <strong>Bio:</strong>
-  <%= @profile.bio unless @profile.bio.blank?  %>
-</p>
+cd<h1>Liked songs</h1>
 
 <ul>
-<% @user.songs.each do |song| %>
+<% @songs.each do |song| %>
   <%= image_tag song.picture %>
   <li><%= song.user.username %></li>
   <li><%= song.name %></li>

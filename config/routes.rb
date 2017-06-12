@@ -23,7 +23,7 @@ Rails.application.routes.draw do
 
   get '/settings/profile', to: 'profiles#edit', as: :edit_profile
   get '/:username', to: 'users#show', as: :user
-
+  get '/:username/likes', to: 'likes#show', as: :user_likes
 
   root 'home#index'
 end
